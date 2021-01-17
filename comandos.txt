@@ -57,3 +57,28 @@ docker container run -it --volumes-from=python-server debian cat /log/server.log
 docker container run --rm alpine ash -c "ifconfig" 
 
 docker container run --rm --net none alpine ash -c "ifconfig"
+
+docker container run -d --name container1 alpine sleep 1000
+
+docker container run -d --name container2 alpine sleep 1000
+
+docker container exec -it container2 ifconfig
+
+docker container exec -it container1 ping 172.17.0.3 
+
+docker container exec -it container1 ping www.google.com
+
+docker network create --driver bridge rede_nova
+
+docker network ls
+
+docker container run -d --name container3 --net rede_nova alpine sleep 1000
+
+docker container exec -it container3 ping 172.17.0.2
+
+docker network connect bridge container3
+
+docker container exec -it container3 ping 172.17.0.2
+
+docker network disconnect bridge container3 
+
