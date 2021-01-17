@@ -82,3 +82,4 @@ docker container exec -it container3 ping 172.17.0.2
 
 docker network disconnect bridge container3 
 
+docker-compose up
