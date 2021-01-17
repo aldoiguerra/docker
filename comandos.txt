@@ -53,3 +53,7 @@ docker image build -t ex-build-dev .
 docker container run -it -v $(pwd):/app -p 80:8000 --name python-server ex-build-dev
 
 docker container run -it --volumes-from=python-server debian cat /log/server.log
+
+docker container run --rm alpine ash -c "ifconfig" 
+
+docker container run --rm --net none alpine ash -c "ifconfig"
