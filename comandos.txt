@@ -1,0 +1,41 @@
+
+
+docker container run hello-world
+
+docker container run debian bash --version
+
+docker container ps -a
+
+docker container run -it debian bash
+
+docker container run --name mydeb -it debian bash
+
+docker container ls
+
+docker container ls -a
+
+docker container start -ai mydeb
+
+docker container run -p 8080:80 nginx
+
+docker container run -p 8080:80 -v /Users/aldoiguerra/Codigos/docker/exercicio1/html:/usr/share/nginx/html nginx
+
+docker container start ex-daemon-basic
+
+docker container restart ex-daemon-basic
+
+docker container stop ex-daemon-basic
+
+docker container logs ex-daemon-basic
+
+docker container inspect ex-daemon-basic
+
+docker image pull redis:latest
+
+docker image ls
+
+docker image rm redis:latest cod3r-redis
+
+docker image build -t ex-simple-build .
+
+docker container run -p 80:80 ex-simple-build
